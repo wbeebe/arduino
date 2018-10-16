@@ -91,10 +91,9 @@ class Comms {
 
         Adafruit_BluefruitLE_SPI *ble;
         char broadcastBuffer[MAX_BUFSIZE];
-
-        void Comms::error(const __FlashStringHelper *);
-        void printHex(const uint8_t * data, const uint32_t numBytes);
         DataFourFloats dff;
+
+        void printHex(const uint8_t * data, const uint32_t numBytes);
     
     public:
         Comms();

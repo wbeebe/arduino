@@ -17,6 +17,7 @@
 #include <Arduino.h>
 
 #include "Motor.h"
+#include "Utilities.h"
 
 // ----------------------------------------------------------------------------------------------
 
@@ -115,13 +116,6 @@ void Motor::fullStop() {
 // ----------------------------------------------------------------------------------------------
 
 void Motor::checkSetup() {
-    if (not LEFT_MOTOR) error(F("LEFT_MOTOR is NULL! Did you call setup?"));
-    if (not RIGHT_MOTOR) error(F("RIGHT_MOTOR is NULL! Did you call setup?"));
-}
-
-// ----------------------------------------------------------------------------------------------
-
-void Motor::error(const __FlashStringHelper *err) {
-    Serial.println(err);
-    while (true);
+    if (not LEFT_MOTOR) errorHalt(F("LEFT_MOTOR is NULL! Did you call setup?"));
+    if (not RIGHT_MOTOR) errorHalt(F("RIGHT_MOTOR is NULL! Did you call setup?"));
 }

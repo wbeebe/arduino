@@ -28,6 +28,7 @@
  */
 
 #include "Comms.h"
+#include "Utilities.h"
 
 // ----------------------------------------------------------------------------------------------
 
@@ -42,7 +43,7 @@ void Comms::setup(String &deviceName) {
     Serial.print(F("Initialising the Bluefruit LE module: "));
 
     if (not ble->begin(VERBOSE_MODE)) {
-        error(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring?"));
+        errorHalt(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring?"));
     }
 
     Serial.println( F("OK!") );
@@ -51,7 +52,7 @@ void Comms::setup(String &deviceName) {
     //
     Serial.println(F("Performing a factory reset: "));
     if (not ble->factoryReset() ) {
-        error(F("Couldn't factory reset"));
+        errorHalt(F("Couldn't factory reset"));
     }
 
     // Convert the name change command to a char array
@@ -142,13 +143,6 @@ DataFourFloats& Comms::getFloats(bool getFourthFloat) {
     }
  
     return dff;
-}
-
-// ----------------------------------------------------------------------------------------------
-
-void Comms::error(const __FlashStringHelper *err) {
-    Serial.println(err);
-    while (true);
 }
 
 // ----------------------------------------------------------------------------------------------
