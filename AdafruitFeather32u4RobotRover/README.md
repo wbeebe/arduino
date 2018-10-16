@@ -3,6 +3,8 @@
 ## Avialable Files
 
 + AdafruitFeather32u4RobotRover.ino
+The core of the application. The functions setup() and loop() are specific to this file. Setup is called when the embedded application is first started, and is only called once. The loop function is then called next. This is where all the work is done. Loop does exactly what it says, it loops and does not return.
+
 + BluefruitConfig.h
 + Comms.cpp
 + Comms.h
