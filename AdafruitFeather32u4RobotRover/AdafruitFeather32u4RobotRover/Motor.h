@@ -36,6 +36,9 @@ class Motor {
     Adafruit_DCMotor *LEFT_MOTOR;
     Adafruit_DCMotor *RIGHT_MOTOR;
 
+    void error(const __FlashStringHelper *);
+    void checkSetup();
+
     public:
     Motor();
 

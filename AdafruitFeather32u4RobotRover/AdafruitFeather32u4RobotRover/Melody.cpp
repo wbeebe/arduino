@@ -130,7 +130,7 @@ sequence_t NatalMelody = {
 Melody::Melody() {
     // Set the melody software PWM speaker pin to output
     //
-    pinMode(speaker, OUTPUT);
+    pinMode(speakerPin, OUTPUT);
 }
 
 // ----------------------------------------------------------------------------------------------
@@ -156,9 +156,9 @@ void Melody::playNote(int note[2]) {
     long duration = note[1] * rate;
 
     while (timeSpent < duration) {
-        digitalWrite(speaker, HIGH);
+        digitalWrite(speakerPin, HIGH);
         delayMicroseconds(note[0]/2);
-        digitalWrite(speaker, LOW);
+        digitalWrite(speakerPin, LOW);
         delayMicroseconds(note[0]/2);
         timeSpent += note[0];
     }

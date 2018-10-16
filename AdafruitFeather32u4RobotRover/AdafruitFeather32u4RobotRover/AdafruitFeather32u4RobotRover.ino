@@ -38,8 +38,15 @@ Melody melody;
 
 void setup() {
     Serial.begin(115200);
+    delay(3000);
+
+    Serial.println();
     Serial.println(F("Adafruit Bluefruit Robot Controller Example"));
-    Serial.println(F("-----------------------------------------"));
+    Serial.println(F("-------------------------------------------"));
+    Serial.println(F("Please use Adafruit Bluefruit LE Connect to"));
+    Serial.println(F("connect in Controller mode."));
+    Serial.println(F("Then activate/use Controller > Control Pad."));
+    Serial.println();
 
     comms.setup(BROADCAST_NAME);
     motor.setup();

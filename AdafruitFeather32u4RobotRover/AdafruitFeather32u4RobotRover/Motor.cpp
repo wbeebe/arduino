@@ -21,6 +21,11 @@
 // ----------------------------------------------------------------------------------------------
 
 Motor::Motor() {
+}
+
+// ----------------------------------------------------------------------------------------------
+
+void Motor::setup() {
     // Create the motor shield object with the default I2C address
     //
     AFMS = Adafruit_MotorShield();
@@ -29,11 +34,7 @@ Motor::Motor() {
     //
     LEFT_MOTOR = AFMS.getMotor(4);
     RIGHT_MOTOR = AFMS.getMotor(3);
-}
 
-// ----------------------------------------------------------------------------------------------
-
-void Motor::setup() {
     // create with the default frequency 1.6KHz
     //
     AFMS.begin();
@@ -46,6 +47,7 @@ void Motor::setup() {
 // ----------------------------------------------------------------------------------------------
 
 void Motor::forward() {
+    checkSetup();
     LEFT_MOTOR->run(FORWARD);
     RIGHT_MOTOR->run(FORWARD);
     maxspeed = ForwardSpeed;
@@ -54,6 +56,7 @@ void Motor::forward() {
 // ----------------------------------------------------------------------------------------------
 
 void Motor::backward() {
+    checkSetup();
     LEFT_MOTOR->run(BACKWARD);
     RIGHT_MOTOR->run(BACKWARD);
     maxspeed = ReverseSpeed;
@@ -62,6 +65,7 @@ void Motor::backward() {
 // ----------------------------------------------------------------------------------------------
 
 void Motor::turnLeft() {
+    checkSetup();
     LEFT_MOTOR->run(RELEASE);
     RIGHT_MOTOR->run(FORWARD);
     maxspeed = TurningSpeed;
@@ -70,6 +74,7 @@ void Motor::turnLeft() {
 // ----------------------------------------------------------------------------------------------
 
 void Motor::turnRight() {
+    checkSetup();
     LEFT_MOTOR->run(FORWARD);
     RIGHT_MOTOR->run(RELEASE);
     maxspeed = TurningSpeed;        
@@ -78,6 +83,7 @@ void Motor::turnRight() {
 // ----------------------------------------------------------------------------------------------
 
 void Motor::accelerate() {
+    checkSetup();
     for (int speed=0; speed < maxspeed; speed+=5) {
         LEFT_MOTOR->setSpeed(speed);
         RIGHT_MOTOR->setSpeed(speed);
@@ -88,6 +94,7 @@ void Motor::accelerate() {
 // ----------------------------------------------------------------------------------------------
 
 void Motor::decelerate() {
+    checkSetup();
     for (int speed = maxspeed; speed >= 0; speed-=5) {
         LEFT_MOTOR->setSpeed(speed);
         RIGHT_MOTOR->setSpeed(speed);
@@ -98,8 +105,23 @@ void Motor::decelerate() {
 // ----------------------------------------------------------------------------------------------
 
 void Motor::fullStop() {
+    checkSetup();
     LEFT_MOTOR->setSpeed(0);
     LEFT_MOTOR->run(RELEASE);
     RIGHT_MOTOR->setSpeed(0);
     RIGHT_MOTOR->run(RELEASE);
+}
+
+// ----------------------------------------------------------------------------------------------
+
+void Motor::checkSetup() {
+    if (not LEFT_MOTOR) error(F("LEFT_MOTOR is NULL! Did you call setup?"));
+    if (not RIGHT_MOTOR) error(F("RIGHT_MOTOR is NULL! Did you call setup?"));
+}
+
+// ----------------------------------------------------------------------------------------------
+
+void Motor::error(const __FlashStringHelper *err) {
+    Serial.println(err);
+    while (true);
 }

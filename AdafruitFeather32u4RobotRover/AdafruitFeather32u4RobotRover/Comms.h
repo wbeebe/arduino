@@ -116,11 +116,6 @@ class Comms {
         //
         COMMAND_TYPE getCommandType();
 
-        // Returns true if a button was pressed and sent in a packet.
-        // Call after at least one non-zero call to readData()
-        //
-        bool isButton();
-
         // Returns true if a button was pressed down, false if released.
         // Call after call to isButton();ghopł                          ````````````````````````````````````````
         //

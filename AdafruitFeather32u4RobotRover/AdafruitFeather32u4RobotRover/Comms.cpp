@@ -32,12 +32,13 @@
 // ----------------------------------------------------------------------------------------------
 
 Comms::Comms() {
-    ble = new Adafruit_BluefruitLE_SPI(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 }
 
 // ----------------------------------------------------------------------------------------------
 
 void Comms::setup(String &deviceName) {
+    ble = new Adafruit_BluefruitLE_SPI(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
+
     Serial.print(F("Initialising the Bluefruit LE module: "));
 
     if (not ble->begin(VERBOSE_MODE)) {
@@ -84,13 +85,7 @@ void Comms::setup(String &deviceName) {
 
     Serial.println("Requesting Bluefruit info:");
 
-    // Print Bluefruit information
-    //
     ble->info();
-
-    Serial.println(F("Please use Adafruit Bluefruit LE Connect to connect in Controller mode"));
-    Serial.println(F("Then activate/use Controller > Control Pad!"));
-    Serial.println();
 
     ble->verbose(false);  // debug info is a little annoying after this point!
 
@@ -113,13 +108,6 @@ void Comms::setup(String &deviceName) {
 // ----------------------------------------------------------------------------------------------
 COMMAND_TYPE Comms::getCommandType() {
     return packetBuffer[1];
-}
-
-// ----------------------------------------------------------------------------------------------
-// Return true if a button was pressed on the app.
-//
-bool Comms::isButton() {
-    return packetBuffer[1] == BUTTON_CMD;
 }
 
 // ----------------------------------------------------------------------------------------------

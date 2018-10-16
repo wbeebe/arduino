@@ -32,37 +32,39 @@
 // Definition of certain musical notes.
 // ----------------------------------------------------------------------------------------------
 
-#define _C   1911
-#define _C1  1804
-#define _D   1703
-#define _Eb  1607
-#define _E   1517
-#define _F   1432
-#define _F1  1352
-#define _G   1276
-#define _Ab  1204
-#define _A   1136
-#define _Bb  1073
-#define _B   1012
-#define _c   955
-#define _c1  902
-#define _d   851
-#define _eb  803
-#define _e   758
-#define _f   716
-#define _f1  676
-#define _g   638
-#define _ab  602
-#define _a   568
-#define _bb  536
-#define _b   506
+enum NOTES {
+    _C   = 1911,
+    _C1  = 1804,
+    _D   = 1703,
+    _Eb  = 1607,
+    _E   = 1517,
+    _F   = 1432,
+    _F1  = 1352,
+    _G   = 1276,
+    _Ab  = 1204,
+    _A   = 1136,
+    _Bb  = 1073,
+    _B   = 1012,
+    _c   = 955,
+    _c1  = 902,
+    _d   = 851,
+    _eb  = 803,
+    _e   = 758,
+    _f   = 716,
+    _f1  = 676,
+    _g   = 638,
+    _ab  = 602,
+    _a   = 568,
+    _bb  = 536,
+    _b   = 506,
+};
 
 // ----------------------------------------------------------------------------------------------
 // Pin used to drive the speaker on the Adafruit Feather 32u4
 // Bluefruit LE board
 // ----------------------------------------------------------------------------------------------
 
-#define speaker A1
+#define speakerPin A1
 
 // ----------------------------------------------------------------------------------------------
 // A value, which multiplied with the note's duration in microseconds,
