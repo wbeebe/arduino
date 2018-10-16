@@ -1,31 +1,31 @@
 /*
- * Copyright (c) 2018 William H. Beebe, Jr.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+   Copyright (c) 2018 William H. Beebe, Jr.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 
 /*
- * This uses some example code for the nRF51822 based Adafuit Bluefruit LE modules
- * provided by Adafruit.
- * 
- * Adafruit invests time and resources providing this open source code,
- * please support Adafruit and open-source hardware by purchasing
- * products from Adafruit!
- * 
- * Some portions use MIT license, check LICENSE for more information
- * All text above, and the splash screen below must be included in
- * any redistribution
- */
+   This uses some example code for the nRF51822 based Adafuit Bluefruit LE modules
+   provided by Adafruit.
+
+   Adafruit invests time and resources providing this open source code,
+   please support Adafruit and open-source hardware by purchasing
+   products from Adafruit!
+
+   Some portions use MIT license, check LICENSE for more information
+   All text above, and the splash screen below must be included in
+   any redistribution
+*/
 
 #ifndef BLUE_FRUIT_CONFIG_H
 #define BLUE_FRUIT_CONFIG_H
@@ -35,8 +35,8 @@
 // These defines are used in both SW UART, HW UART and SPI mode
 // ----------------------------------------------------------------------------------------------
 //
-#define VERBOSE_MODE                   true  // If set to 'true' enables debug output
-#define BLE_READPACKET_TIMEOUT         500   // Timeout in ms waiting to read a response
+#define VERBOSE_MODE           true  // If set to 'true' enables debug output
+#define BLE_READPACKET_TIMEOUT 500   // Timeout in ms waiting to read a response
 
 // SHARED SPI SETTINGS
 // ----------------------------------------------------------------------------------------------
@@ -45,8 +45,8 @@
 // using HW SPI.  This should be used with nRF51822 based Bluefruit LE modules
 // that use SPI (Bluefruit LE SPI Friend).
 // ----------------------------------------------------------------------------------------------
-#define BLUEFRUIT_SPI_CS               8
-#define BLUEFRUIT_SPI_IRQ              7
-#define BLUEFRUIT_SPI_RST              4    // Optional but recommended, set to -1 if unused
+#define BLUEFRUIT_SPI_CS       8
+#define BLUEFRUIT_SPI_IRQ      7
+#define BLUEFRUIT_SPI_RST      4    // Optional but recommended, set to -1 if unused
 
 #endif
