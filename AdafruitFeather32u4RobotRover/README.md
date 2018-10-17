@@ -16,7 +16,7 @@ It is written to move the Mini Robot and to play back four melodies via the bott
 
 + Comms (.h and .cpp) - A class that wraps the basic initialization and operational functionality for the Bluetooth LE (BLE) wireless communications. In addition to setting up the BLE subystems, it also provides helper functions to read and send data across the BLE wireless link. Helper functions include determining which button was pushed as well as reading single precision floating point numbers from the BLE raw byte stream.
 
-+ Melody (.h and .cpp) - A class that wraps the ability to play back simple melodies via software Pulse Width Modulation (PWM) using one of the Feather's pins to drive a simple audio emitter. The software is based on earlier work by Tiago Galo (https://therandombit.wordpress.com/2011/11/21/arduino-piezo-speaker-super-mario/)
++ Melody (.h and .cpp) - A class that wraps the ability to play back simple melodies via software Pulse Width Modulation (PWM) using one of the Feather's pins to drive a simple piezo audio emitter. The software is based on earlier work by Tiago Galo (https://therandombit.wordpress.com/2011/11/21/arduino-piezo-speaker-super-mario/)
 
 + Motor (.h and .cpp)
 
