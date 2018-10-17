@@ -146,38 +146,6 @@ DataFourFloats& Comms::getFloats(bool getFourthFloat) {
 }
 
 // ----------------------------------------------------------------------------------------------
-// Prints a hexadecimal value in plain characters
-// data      Pointer to the byte data
-// numBytes  Data length in bytes
-// ----------------------------------------------------------------------------------------------
-
-void Comms::printHex(const uint8_t * data, const uint32_t numBytes) {
-  uint32_t szPos;
-
-  for (szPos = 0; szPos < numBytes; szPos++) {
-    Serial.print(F("0x"));
-
-    // Append leading 0 for small values
-    //
-    if (data[szPos] <= 0xF) {
-      Serial.print(F("0"));
-      Serial.print(data[szPos] & 0xf, HEX);
-    }
-    else {
-      Serial.print(data[szPos] & 0xff, HEX);
-    }
-
-    // Add a trailing space if appropriate
-    //
-    if ((numBytes > 1) and (szPos != numBytes - 1)) {
-      Serial.print(F(" "));
-    }
-  }
-
-  Serial.println();
-}
-
-// ----------------------------------------------------------------------------------------------
 // Waits for incoming data and loads it into packetBuffer.
 // Returns 0 if nothing recieved to process, or greater than zero if a command (package) is
 // recieved.

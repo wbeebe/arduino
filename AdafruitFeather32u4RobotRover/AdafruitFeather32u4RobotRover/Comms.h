@@ -93,8 +93,6 @@ class Comms {
     char broadcastBuffer[MAX_BUFSIZE];
     DataFourFloats dff;
 
-    void printHex(const uint8_t * data, const uint32_t numBytes);
-
   public:
     Comms();
 
