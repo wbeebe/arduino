@@ -12,7 +12,7 @@ It is written to move the Mini Robot and to play back four melodies via the bott
 
 + AdafruitFeather32u4RobotRover.ino - The core of the application. The functions setup() and loop() are specific to this file. Setup is called when the embedded application is first started, and is only called once. The loop function is then called next. This is where all the work is done. Loop does exactly what it says, it loops and does not return.
 
-+ BluefruitConfig.h - Several basic configuration settings specific to the Feature's Bluetooth hardware.
++ BluefruitConfig.h - Several basic configuration settings specific to the Feather's Bluetooth hardware.
 
 + Comms (.h and .cpp) - A class that wraps the basic initialization and operational functionality for the Bluetooth LE (BLE) wireless communications. In addition to setting up the BLE subystems, it also provides helper functions to read and send data across the BLE wireless link. Helper functions include determining which button was pushed as well as reading single precision floating point numbers from the BLE raw byte stream.
 
