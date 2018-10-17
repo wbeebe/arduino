@@ -6,21 +6,21 @@ The software was developed using the Arduino IDE Version 1.8.7 (https://www.ardu
 
 It was tested using the Adafruit Bluefruit LE Connect app, Version 3.3.2, on both iOS (12.1) and Android (7.1).
 
-It is written to move the Mini Robot and to play back four melodies via the bottons provided by the Adafruit app.
+It is written to move the Mini Robot and to play back four melodies via the bottons provided by the Adafruit app. It is written in C++.
 
 ## Avialable Files
 
 + AdafruitFeather32u4RobotRover.ino - The core of the application. The functions setup() and loop() are specific to this file. Setup is called when the embedded application is first started, and is only called once. The loop function is then called next. This is where all the work is done. Loop does exactly what it says, it loops and does not return.
 
-+ BluefruitConfig.h
-+ Comms.cpp
-+ Comms.h
-+ Melody.cpp
-+ Melody.h
-+ Motor.cpp
-+ Motor.h
-+ Utilities.cpp
-+ Utilities.h
++ BluefruitConfig.h - Several basic configuration settings specific to the Feature's Bluetooth hardware.
+
++ Comms (.h and .cpp) - A class that wraps the basic initialization and operational functionality for the Bluetooth LE (BLE) wireless communications. In addition to setting up the BLE subystems, it also provides helper functions to read and send data across the BLE wireless link. Helper functions include determining which button was pushed as well as reading single precision floating point numbers from the BLE raw byte stream.
+
++ Melody (.h and .cpp) - A class that wraps the ability to play back simple melodies via software Pulse Width Modulation (PWM) using one of the Feature's pins to drive a simple audio emitter.
+
++ Motor (.h and .cpp)
+
++ Utilities (.h and .cpp)
 
 ## License
 
