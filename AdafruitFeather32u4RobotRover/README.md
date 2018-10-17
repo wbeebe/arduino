@@ -6,7 +6,9 @@ The software was developed using the Arduino IDE Version 1.8.7 (https://www.ardu
 
 It was tested using the Adafruit Bluefruit LE Connect app, Version 3.3.2, on both iOS (12.1) and Android (7.1).
 
-It is written to move the Mini Robot and to play back four melodies via the bottons provided by the Adafruit app. It is written in C++.
+It is written to move the Mini Robot and to play back four melodies via the bottons provided by the Adafruit app. 
+
+Written in C++, the code is organized as a collection of classes that broadly parallel the hardware construction of the robot. For example there is a Motor class, a Comms (for Bluetooth LE communication) class, there's a Melody class (to play simple tunes), and the INO class that names the project and ties it all together. 
 
 ## Avialable Files
 
@@ -14,13 +16,13 @@ It is written to move the Mini Robot and to play back four melodies via the bott
 
 + BluefruitConfig.h - Several basic configuration settings specific to the Feather's Bluetooth hardware.
 
-+ Comms (.h and .cpp) - A class that wraps the basic initialization and operational functionality for the Bluetooth LE (BLE) wireless communications. In addition to setting up the BLE subystems, it also provides helper functions to read and send data across the BLE wireless link. Helper functions include determining which button was pushed as well as reading single precision floating point numbers from the BLE raw byte stream.
++ Comms (.h and .cpp) - A class that wraps the basic initialization and operational functionality for the Bluetooth LE (BLE) wireless communications. In addition to setting up the BLE subystems, it also provides helper functions to read and send data across the BLE wireless link. Helper functions include determining which button was pushed as well as reading single precision floating point numbers from the inbound BLE raw byte stream.
 
-+ Melody (.h and .cpp) - A class that wraps the ability to play back simple melodies via software Pulse Width Modulation (PWM) using one of the Feather's pins to drive a simple piezo audio emitter. The software is based on earlier work by Tiago Galo (https://therandombit.wordpress.com/2011/11/21/arduino-piezo-speaker-super-mario/)
++ Melody (.h and .cpp) - A class that wraps the ability to play back simple melodies via software Pulse Width Modulation (PWM) using one of the Feather's pins to drive a simple piezo audio emitter. The software is based on earlier work by Tiago Galo (https://therandombit.wordpress.com/2011/11/21/arduino-piezo-speaker-super-mario/). Note that buttons 1 through 4 on the app are mapped to four different tunes.
 
-+ Motor (.h and .cpp)
++ Motor (.h and .cpp) - A class that wraps the dual motors setup and operation. Besides setting up the motors for software control, the class provides convenient functions to move forward, backward, turn left, and turn right, as well as acceleration and stopping. Max speed is hard coded within the class. Future versions will allow programmatic setting of the maximum motor speed. The motors are controlled wirelessly through the four arrow keys on the app.
 
-+ Utilities (.h and .cpp)
++ Utilities (.h and .cpp) - A collection of simple common utilities.
 
 ## License
 
