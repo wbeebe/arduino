@@ -1,5 +1,13 @@
 # AdafruitFeather32u4RobotRover
 
+This is an application designed to operate the Adafruit AdaBox002 Feather Bluetooth LE Mini Robot (https://www.adafruit.com/product/3235). The kit from Adafruit is powered by the Adafruit Feather 32u4 Bluefruit LE (https://www.adafruit.com/product/2829) for which this software is written.
+
+The software was developed using the Arduino IDE Version 1.8.7 (https://www.arduino.cc/en/Main/Software).
+
+It was tested using the Adafruit Bluefruit LE Connect app, Version 3.3.2, on both iOS (12.1) and Android (7.1).
+
+It is written to move the Mini Robot and to play back four melodies via the bottons provided by the Adafruit app.
+
 ## Avialable Files
 
 + AdafruitFeather32u4RobotRover.ino - The core of the application. The functions setup() and loop() are specific to this file. Setup is called when the embedded application is first started, and is only called once. The loop function is then called next. This is where all the work is done. Loop does exactly what it says, it loops and does not return.
