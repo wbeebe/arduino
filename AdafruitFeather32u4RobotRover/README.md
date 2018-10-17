@@ -10,7 +10,7 @@ It is written to move the Mini Robot and to play back four melodies via the bott
 
 Written in C++, the code is organized as a collection of classes that broadly parallel the hardware construction of the robot. For example there is a Motor class, a Comms (for Bluetooth LE communication) class, there's a Melody class (to play simple tunes), and the INO class that names the project and ties it all together. 
 
-## Avialable Files
+## Available Files
 
 + AdafruitFeather32u4RobotRover.ino - The core of the application. The functions setup() and loop() are specific to this file. Setup is called when the embedded application is first started, and is only called once. The loop function is then called next. This is where all the work is done. Loop does exactly what it says, it loops and does not return.
 
