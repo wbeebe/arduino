@@ -4,11 +4,13 @@ This is an application designed to operate the Adafruit AdaBox002 Feather Blueto
 
 The software was developed using the Arduino IDE Version 1.8.7 (https://www.arduino.cc/en/Main/Software).
 
-It was tested using the Adafruit Bluefruit LE Connect app, Version 3.3.2, on both iOS (12.1) and Android (7.1).
+It was tested using the Adafruit Bluefruit LE Connect app, Version 3.3.2, on both iOS (12.1) and Android (7.1) devices.
 
-It is written to move the Mini Robot and to play back four melodies via the bottons provided by the Adafruit app. 
+It is written to move the Mini Robot and to play back four melodies via the bottons provided by the Adafruit app. In addition, if the
+Arduino IDE's Serial Monitor window is up, the application will display data sent from the mobile device via the app's Controller panel
+streamed sensor data. Quaternion, Accelerometer, Gyro, Magnetometer, and Location data will print out on Serial Monitor.
 
-Written in C++, the code is organized as a collection of classes that broadly parallel the hardware construction of the robot. For example there is a Motor class, a Comms (for Bluetooth LE communication) class, there's a Melody class (to play simple tunes), and the INO class that names the project and ties it all together. 
+Written in C++, the code is organized as a collection of classes that broadly parallel the hardware construction of the robot. For example there is a Motor class, a Comms (for Bluetooth LE communication) class, there's a Melody class (to play simple tunes), and the INO file that names the project and ties it all together.
 
 ## Available Files
 

@@ -2,7 +2,11 @@
 
 ## Avialable Applications
 
-+ AdafruitFeather32u4RobotRover
+All applications were developed on a Macbook Pro mid-2015 under macOS Mojave version 10.14 or later, and where possible, also
+cross-developed under Windows 10 version 1809 or later. See each individual product's README for more details.
+
++ AdafruitFeather32u4RobotRover - The application for the 
+Adafruit AdaBox002 Feather Bluetooth LE Mini Robot (https://www.adafruit.com/product/3235).
 
 ## License
 
