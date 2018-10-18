@@ -18,6 +18,8 @@
 #include <Adafruit_BLE.h>
 #include <Adafruit_BluefruitLE_SPI.h>
 
+#include "Utilities.h"
+
 #include "Comms.h"
 #include "Melody.h"
 #include "Motor.h"
@@ -121,6 +123,7 @@ void loop() {
 // ----------------------------------------------------------------------------------------------
 
 void doButtonCommand(BUTTON_COMMAND buttonCommand) {
+  printHex(buttonCommand);
   switch (buttonCommand) {
     case BUTTON_1:
       melody.play(SuperMarioBrosMelody);
@@ -170,14 +173,18 @@ void printFloatData(char *title, bool printW) {
   dff = comms.getFloats(printW);
   Serial.println(title);
   Serial.print(" X: ");
+  printHex(dff.x);
   Serial.println(dff.x);
   Serial.print(" Y: ");
+  printHex(dff.y);
   Serial.println(dff.y);
   Serial.print(" Z: ");
+  printHex(dff.z);
   Serial.println(dff.z);
 
   if (printW) {
     Serial.print(" W: ");
+    printHex(dff.w);
     Serial.println(dff.w);
   }
 

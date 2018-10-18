@@ -17,6 +17,17 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+extern char *hexDigits;
+
+template<typename T> void printHex(T value) {
+    uint8_t *vptr = reinterpret_cast<uint8_t *>(&value);
+    for (int i = 0; i < sizeof(value); i++) {
+        Serial.print(hexDigits[(int)(vptr[i] >> 4)]);
+        Serial.print(hexDigits[(int)(vptr[i] & 0x0f)]);
+    }
+    Serial.print(' ');
+}
+
 void errorHalt(const __FlashStringHelper *);
 
 #endif

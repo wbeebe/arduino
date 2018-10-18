@@ -18,6 +18,8 @@
 
 #include "Utilities.h"
 
+char *hexDigits = "0123456789ABCDEF";
+
 void errorHalt(const __FlashStringHelper *err) {
   Serial.println(err);
   while (true);
