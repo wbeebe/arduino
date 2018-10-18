@@ -17,7 +17,12 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
-extern char *hexDigits;
+// ----------------------------------------------------------------------------------------------
+// Templated printHex. Instantiate with the variable you want to print out in hexadecimal as
+// the argument call.
+// ----------------------------------------------------------------------------------------------
+
+extern char hexDigits[];
 
 template<typename T> void printHex(T value) {
     uint8_t *vptr = reinterpret_cast<uint8_t *>(&value);
@@ -27,6 +32,11 @@ template<typename T> void printHex(T value) {
     }
     Serial.print(' ');
 }
+
+// ----------------------------------------------------------------------------------------------
+// Send an error string out to the Serial Monitor console and then halt.
+// Function does not return and the application is locked at this point until it's reset.
+// ----------------------------------------------------------------------------------------------
 
 void errorHalt(const __FlashStringHelper *);
 
