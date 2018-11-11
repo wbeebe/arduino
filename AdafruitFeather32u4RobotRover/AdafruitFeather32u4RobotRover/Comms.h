@@ -14,29 +14,29 @@
    limitations under the License.
 */
 
-#ifndef COMMS_H
-#define COMMS_H
+#ifndef COMMS_H_
+#define COMMS_H_
 
 #include <Adafruit_BLE.h>
 #include <Adafruit_BluefruitLE_SPI.h>
 
 #include "BluefruitConfig.h"
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Taken from the Adafruit app's information help screen.
 // All data is raw. All numbers are four byte floats and little endian.
-// Quaternion data is the attitude of the smartphone and is derived from accelerometer, gyro, and
-// magnetometer readings.
+// Quaternion data is the attitude of the smartphone and is derived from
+// accelerometer, gyro, and magnetometer readings.
 //
 enum COMMAND_TYPE {
-  START_CMD =         '!',    // The very first character of ever command packet.
-  BUTTON_CMD =        'B',    // followed by button ID and if pressed ('1') or released ('0')
-  BUTTON_PRESSED =    '1',
-  QUARTERNION_CMD =   'Q',    // followed by x, y, z and w, all floats.
-  ACCELEROMETER_CMD = 'A',    // followed by x, y, and z, all floats.
-  GYRO_CMD =          'G',    // followed by x, y, and z, all floats.
-  MAGNETOMETER_CMD =  'M',    // followed by x, y, and z, all floats.
-  LOCATION_CMD =      'L'     // followed by latitude, longitude, and altitude, all floats.
+  START_CMD =         '!',    // First character of ever command packet.
+  BUTTON_CMD =        'B',    // Button ID
+  BUTTON_PRESSED =    '1',    // If button pressed ('1') or released ('0')
+  QUARTERNION_CMD =   'Q',    // x, y, z and w, all floats.
+  ACCELEROMETER_CMD = 'A',    // x, y, and z, all floats.
+  GYRO_CMD =          'G',    // x, y, and z, all floats.
+  MAGNETOMETER_CMD =  'M',    // x, y, and z, all floats.
+  LOCATION_CMD =      'L'     // latitude, longitude, and altitude, all floats.
 };
 
 enum BUTTON_COMMAND {
@@ -56,8 +56,8 @@ enum BUTTON_COMMAND {
 };
 
 // Many of the commands contain floats, either three in the packet, or four.
-// This structure allows all those command's float data to be reconstructed from
-// serialized byte data back into their respective float values.
+// This structure allows all those command's float data to be reconstructed
+// from serialized byte data back into their respective float values.
 //
 // For all commands that only have three floats, the fourth (w) is set to zero.
 //
@@ -68,21 +68,20 @@ struct DataFourFloats {
   float w;
 };
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Size of the read buffer for incoming packets
 //
 #define MAX_PACKET_BUFSIZE  20
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // A specialized print buffer.
 //
 #define MAX_BUFSIZE 60
 
-// ----------------------------------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------
+//
 class Comms {
-  private:
-
+ private:
     // Buffer to hold incoming characters. Make the buffer one byte larger than
     // MAX_PACKET_BUFSIZE so that no matter what, you don't overrun the buffer
     // IFF you're checking that you only fill up to MAX_PACKET_BUFSIZE.
@@ -93,7 +92,7 @@ class Comms {
     char broadcastBuffer[MAX_BUFSIZE];
     DataFourFloats dff;
 
-  public:
+ public:
     Comms();
 
     // Call from top-level setup with the device's string name.
@@ -114,7 +113,7 @@ class Comms {
     COMMAND_TYPE getCommandType();
 
     // Returns true if a button was pressed down, false if released.
-    // Call after call to isButton();ghopł                          ````````````````````````````````````````
+    // Call after call to isButton();
     //
     bool buttonIsPressed();
 
@@ -131,4 +130,4 @@ class Comms {
     DataFourFloats& getFloats(bool getFourthFloat);
 };
 
-#endif
+#endif  // COMMS_H_

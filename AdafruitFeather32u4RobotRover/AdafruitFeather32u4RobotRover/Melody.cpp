@@ -123,21 +123,19 @@ sequence_t NatalMelody = {
   {0, 0},
 };
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Called during instantiation, sets up hardware output pin.
-// ----------------------------------------------------------------------------------------------
-
+//
 Melody::Melody() {
   // Set the melody software PWM speaker pin to output
   //
   pinMode(speakerPin, OUTPUT);
 }
 
-// ----------------------------------------------------------------------------------------------
-// Called with an array of two-element arrays, will play the entire array until it reaches the
-// end.
-// ----------------------------------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------
+// Called with an array of two-element arrays, will play the entire array until
+// it reaches the end.
+//
 void Melody::play(sequence_t melody) {
   for (int i = 0; melody[i][0]; i++) {
     playNote(melody[i]);
@@ -145,15 +143,15 @@ void Melody::play(sequence_t melody) {
   }
 }
 
-// ----------------------------------------------------------------------------------------------
-// This function plays a single note via software pulse-width modulation, or PWM.
-// Because this particular board supports hardware PWM, this function will be replaced
-// in the near future with code that uses one of the pins in PWM mode.
-// ----------------------------------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------
+// This function plays a single note via software pulse-width modulation, or
+// PWM. Because this particular board supports hardware PWM, this function will
+// be replaced in the near future with code that uses one of the pins in PWM
+// mode.
+//
 void Melody::playNote(int note[2]) {
-  long timeSpent = 0;
-  long duration = note[1] * rate;
+  uint32_t timeSpent = 0;
+  uint32_t duration = note[1] * rate;
 
   while (timeSpent < duration) {
     digitalWrite(speakerPin, HIGH);

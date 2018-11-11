@@ -14,30 +14,29 @@
    limitations under the License.
 */
 
-#ifndef UTILITIES_H
-#define UTILITIES_H
+#ifndef UTILITIES_H_
+#define UTILITIES_H_
 
-// ----------------------------------------------------------------------------------------------
-// Templated printHex. Instantiate with the variable you want to print out in hexadecimal as
-// the argument call.
-// ----------------------------------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------
+// Templated printHex. Instantiate with the variable you want to print out in
+// hexadecimal as the argument call.
+//
 extern char hexDigits[];
 
 template<typename T> void printHex(T value) {
     uint8_t *vptr = reinterpret_cast<uint8_t *>(&value);
     for (int i = 0; i < sizeof(value); i++) {
-        Serial.print(hexDigits[(int)(vptr[i] >> 4)]);
-        Serial.print(hexDigits[(int)(vptr[i] & 0x0f)]);
+        Serial.print(hexDigits[static_cast<int>(vptr[i] >> 4)]);
+        Serial.print(hexDigits[static_cast<int>(vptr[i] & 0x0f)]);
     }
     Serial.print(' ');
 }
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Send an error string out to the Serial Monitor console and then halt.
-// Function does not return and the application is locked at this point until it's reset.
-// ----------------------------------------------------------------------------------------------
-
+// Function does not return and the application is locked at this point
+// until it's reset.
+//
 void errorHalt(const __FlashStringHelper *);
 
-#endif
+#endif  // UTILITIES_H_

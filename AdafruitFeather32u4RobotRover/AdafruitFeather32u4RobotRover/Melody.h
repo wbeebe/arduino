@@ -14,8 +14,8 @@
    limitations under the License.
 */
 
-#ifndef MELODY_H
-#define MELODY_H
+#ifndef MELODY_H_
+#define MELODY_H_
 
 /*********************************************************************
    Software derived Pulse-Width Modulatoin (PWM) tone and melody
@@ -28,10 +28,9 @@
    https://learn.adafruit.com/adafruit-feather-32u4-bluefruit-le/overview
  *********************************************************************/
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Definition of certain musical notes.
-// ----------------------------------------------------------------------------------------------
-
+//
 enum NOTES {
   _C   = 1911,
   _C1  = 1804,
@@ -59,21 +58,19 @@ enum NOTES {
   _b   = 506,
 };
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Pin used to drive the speaker on the Adafruit Feather 32u4
 // Bluefruit LE board
-// ----------------------------------------------------------------------------------------------
-
+//
 #define speakerPin A1
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // A value, which multiplied with the note's duration in microseconds,
 // provides the amount of total time to play the note.
-// ----------------------------------------------------------------------------------------------
-
+//
 #define rate  20000L
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // A melody is defined as an array of arrays:
 //
 // melody[][2]
@@ -86,9 +83,8 @@ enum NOTES {
 //
 // The train of notes is termintes with a {0,0} so that the melody playback
 // function will know where the array stops, and thus the music.
-// Notice that the array can be of any size, as long as it's terminated with {0,0}
-// ----------------------------------------------------------------------------------------------
-
+// The array can be of any length, as long as it's terminated with {0,0}
+//
 using sequence_t = int[][2];
 
 extern sequence_t SuperMarioBrosMelody;
@@ -96,10 +92,10 @@ extern sequence_t PeerGyntMelody;
 extern sequence_t SmokeMelody;
 extern sequence_t NatalMelody;
 
-// ----------------------------------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------
+//
 class Melody {
-  public:
+ public:
     Melody();
 
     // This class function plays a melody as defined above.
@@ -109,8 +105,8 @@ class Melody {
     //
     void play(sequence_t);
 
-  private:
+ private:
     void playNote(int note[2]);
 };
 
-#endif
+#endif  // MELODY_H_

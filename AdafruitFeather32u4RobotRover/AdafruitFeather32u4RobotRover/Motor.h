@@ -14,23 +14,22 @@
    limitations under the License.
 */
 
-#ifndef MOTOR_H
-#define MOTOR_H
+#ifndef MOTOR_H_
+#define MOTOR_H_
 
 #include <Adafruit_MotorShield.h>
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Set your forward, reverse, and turning speeds
-// ----------------------------------------------------------------------------------------------
-
+//
 #define ForwardSpeed    150
 #define ReverseSpeed    150
 #define TurningSpeed    100
 
-// ----------------------------------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------
+//
 class Motor {
-  private:
+ private:
     uint8_t currentSpeed, maxSpeed;
     Adafruit_MotorShield AFMS;
     Adafruit_DCMotor *LEFT_MOTOR;
@@ -38,7 +37,7 @@ class Motor {
 
     void checkSetup();
 
-  public:
+ public:
     Motor();
 
     void setup();
@@ -56,4 +55,4 @@ class Motor {
     void fullStop();
 };
 
-#endif
+#endif  // MOTOR_H_

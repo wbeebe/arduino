@@ -33,10 +33,10 @@ DataFourFloats dff;
 Motor motor;
 Melody melody;
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Initializes all necessary hardware and prepares the robot for operations
 // (this function is called automatically on startup)
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 void setup() {
   Serial.begin(115200);
@@ -53,31 +53,32 @@ void setup() {
   motor.setup();
 }
 
-// ----------------------------------------------------------------------------------------------
-// Runs the application from here (this function is called automatically after setup is called).
-// All of the available commands from the Controller module of the Adafruit app are handled here,
-// with the notable exception of the Color Picker.
+// -----------------------------------------------------------------------------
+// Runs the application from here (this function is called automatically after
+// setup is called).
+// All of the available commands from the Controller module of the Adafruit app
+// are handled here, with the notable exception of the Color Picker.
 //
-// The button commands are handled completely in doButtonCommand, while the rest of the commands
-// simply print out what they recieve on the Serial Monitor. Thus, to see what they print, open
-// Arduino's Serial Monitor window and then look at the output that prints out there.
-// ----------------------------------------------------------------------------------------------
+// The button commands are handled completely in doButtonCommand, while the rest
+// of the commands simply print out what they recieve on the Serial Monitor.
+// Thus, to see what they print, open Arduino's Serial Monitor window and then
+// look at the output that prints out there.
+// -----------------------------------------------------------------------------
 
 void loop() {
   if (comms.readData()) {
     switch (comms.getCommandType()) {
       case BUTTON_CMD:
         //
-        // The user has pressed a button on the screen. As long as the user's finger
-        // is on the button (screen), no other button event is sent.
+        // The user has pressed a button on the screen. As long as the user's
+        // finger is on the button (screen), no other button event is sent.
         //
         if (comms.buttonIsPressed()) {
           doButtonCommand(comms.getButtonValue());
-        }
-        else {
+        } else {
           //
-          // The user has lifted their finger off the button (screen) sending a matching event.
-          // Turn the motors off and stop all motion.
+          // The user has lifted their finger off the button (screen) sending
+          // a matching event. Turn the motors off and stop all motion.
           //
           motor.fullStop();
         }
@@ -114,13 +115,13 @@ void loop() {
   }
 }
 
-// ----------------------------------------------------------------------------------------------
-// All of the buttons on the Adafruit app's Control Pad are fully decoded here. The four numeric
-// buttons are bound to four different tunes, while the arrow keys move the rover in their
-// respective directions. For this implementation, please note that left and right are in
-// relation to viewing the rover from above, with the small wheel at top indicating forward
-// direction.
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// All of the buttons on the Adafruit app's Control Pad are fully decoded here.
+// The four numeric buttons are bound to four different tunes, while the arrow
+// keys move the rover in their respective directions. For this implementation,
+// please note that left and right are in relation to viewing the rover from
+// above, with the small wheel at top indicating forward direction.
+// -----------------------------------------------------------------------------
 
 void doButtonCommand(BUTTON_COMMAND buttonCommand) {
   printHex(buttonCommand);
@@ -163,11 +164,11 @@ void doButtonCommand(BUTTON_COMMAND buttonCommand) {
   }
 }
 
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // A convenience function for printing the data in DataFourFloats.
 // If called with printW false, then only prints x, y, and z.
 // If called with printW true, then prints x, y, z, and w.
-// ----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 void printFloatData(char *title, bool printW) {
   dff = comms.getFloats(printW);
