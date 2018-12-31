@@ -124,9 +124,14 @@ sequence_t NatalMelody = {
 };
 
 // -----------------------------------------------------------------------------
-// Called during instantiation, sets up hardware output pin.
 //
 Melody::Melody() {
+}
+
+// -----------------------------------------------------------------------------
+// Sets up hardware output pin to emit the waveform necessary to play a sound.
+//
+void Melody::setup() {
   // Set the melody software PWM speaker pin to output
   //
   pinMode(speakerPin, OUTPUT);

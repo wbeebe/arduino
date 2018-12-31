@@ -98,6 +98,8 @@ class Melody {
  public:
     Melody();
 
+    void setup();
+
     // This class function plays a melody as defined above.
     // It iterates down the array of notes, until it reaches
     // an entry with a zero value in the note location, at which point it stops.

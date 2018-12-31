@@ -39,8 +39,8 @@ Melody melody;
 // -----------------------------------------------------------------------------
 
 void setup() {
-  Serial.begin(115200);
-  delay(3000);
+  Serial.begin(9600);
+  delay(6000);
 
   Serial.println();
   Serial.println(F("Adafruit Bluefruit Robot Controller Example"));
@@ -51,6 +51,7 @@ void setup() {
 
   comms.setup(BROADCAST_NAME);
   motor.setup();
+  melody.setup();
 }
 
 // -----------------------------------------------------------------------------
