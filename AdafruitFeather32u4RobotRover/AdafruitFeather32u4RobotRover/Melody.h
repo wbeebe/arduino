@@ -14,8 +14,7 @@
    limitations under the License.
 */
 
-#ifndef MELODY_H_
-#define MELODY_H_
+#pragma once
 
 /*********************************************************************
    Software derived Pulse-Width Modulatoin (PWM) tone and melody
@@ -62,13 +61,13 @@ enum NOTES {
 // Pin used to drive the speaker on the Adafruit Feather 32u4
 // Bluefruit LE board
 //
-#define speakerPin A1
+const uint8_t speakerPin = A1;
 
 // -----------------------------------------------------------------------------
 // A value, which multiplied with the note's duration in microseconds,
 // provides the amount of total time to play the note.
 //
-#define rate  20000L
+const uint32_t rate = 20000L;
 
 // -----------------------------------------------------------------------------
 // A melody is defined as an array of arrays:
@@ -110,5 +109,3 @@ class Melody {
  private:
     void playNote(int note[2]);
 };
-
-#endif  // MELODY_H_

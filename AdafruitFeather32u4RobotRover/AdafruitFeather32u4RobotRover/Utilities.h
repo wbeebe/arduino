@@ -14,8 +14,7 @@
    limitations under the License.
 */
 
-#ifndef UTILITIES_H_
-#define UTILITIES_H_
+#pragma once
 
 // -----------------------------------------------------------------------------
 // Templated printHex. Instantiate with the variable you want to print out in
@@ -38,5 +37,3 @@ template<typename T> void printHex(T value) {
 // until it's reset.
 //
 void errorHalt(const __FlashStringHelper *);
-
-#endif  // UTILITIES_H_

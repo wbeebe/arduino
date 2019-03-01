@@ -14,17 +14,16 @@
    limitations under the License.
 */
 
-#ifndef MOTOR_H_
-#define MOTOR_H_
+#pragma once
 
 #include <Adafruit_MotorShield.h>
 
 // -----------------------------------------------------------------------------
 // Set your forward, reverse, and turning speeds
 //
-#define ForwardSpeed    150
-#define ReverseSpeed    150
-#define TurningSpeed    100
+const uint8_t ForwardSpeed = 150;
+const uint8_t ReverseSpeed = 150;
+const uint8_t TurningSpeed = 100;
 
 // -----------------------------------------------------------------------------
 //
@@ -54,5 +53,3 @@ class Motor {
 
     void fullStop();
 };
-
-#endif  // MOTOR_H_

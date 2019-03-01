@@ -14,8 +14,7 @@
    limitations under the License.
 */
 
-#ifndef COMMS_H_
-#define COMMS_H_
+#pragma once
 
 #include <Adafruit_BLE.h>
 #include <Adafruit_BluefruitLE_SPI.h>
@@ -71,12 +70,12 @@ struct DataFourFloats {
 // -----------------------------------------------------------------------------
 // Size of the read buffer for incoming packets
 //
-#define MAX_PACKET_BUFSIZE  20
+const uint16_t MAX_PACKET_BUFSIZE = 20;
 
 // -----------------------------------------------------------------------------
 // A specialized print buffer.
 //
-#define MAX_BUFSIZE 60
+const size_t MAX_BUFSIZE = 60;
 
 // -----------------------------------------------------------------------------
 //
@@ -129,5 +128,3 @@ class Comms {
     //
     DataFourFloats& getFloats(bool getFourthFloat);
 };
-
-#endif  // COMMS_H_
