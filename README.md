@@ -1,6 +1,6 @@
 # arduino
 
-## Avialable Applications
+## Available Applications
 
 All applications were developed on a Macbook Pro mid-2015 under macOS Mojave version 10.14 or later, and where possible, also
 cross-developed under Windows 10 version 1809 or later. See each individual product's README for more details.
@@ -10,7 +10,7 @@ Adafruit AdaBox002 Feather Bluetooth LE Mini Robot (https://www.adafruit.com/pro
 
 ## License
 
-    Copyright (c) 2018 William H. Beebe, Jr.
+    Copyright (c) 2019 William H. Beebe, Jr.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
