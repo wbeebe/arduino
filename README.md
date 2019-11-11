@@ -2,11 +2,16 @@
 
 ## Available Applications
 
-All applications were developed on a Macbook Pro mid-2015 under macOS Mojave version 10.14 or later, and where possible, also
-cross-developed under Windows 10 version 1809 or later. See each individual product's README for more details.
+All applications are developed on a imid-2015 Macbook Pro under macOS (currently at 10.14.6) using the
+Arduino IDE (https://www.arduino.cc/en/Main/Software), currently version 1.8.10.
 
 + AdafruitFeather32u4RobotRover - The application for the 
 Adafruit AdaBox002 Feather Bluetooth LE Mini Robot (https://www.adafruit.com/product/3235).
+
++ CircuitPlaygroundExpress - Work for the Adafruit Circuit Playground Express
+
++ Examples - Example sketches for the Adafruit nRF52 Bluefruit LE - nRF52832.
+Other example sketches may follow for different devices.
 
 ## License
 
