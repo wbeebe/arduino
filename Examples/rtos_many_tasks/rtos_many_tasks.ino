@@ -47,14 +47,67 @@ void secondsDownCounter(int downcount) {
     }
 }
 
+/**
+ * Flash the displays alternately with all zeros then spaces, 
+ * counter times.
+ * The decimals on all displays are continuosly displayed.
+ */
+void flashDisplay(const int counter) {
+    for (int j = counter; j > 0; j--) {
+        writeAllDigitAscii('0');
+        delay(100);
+        writeAllDigitAscii(' ');
+        delay(100);
+    }
+}
+
+/**
+ * Highly simplistic up time. Uses the milliseconds counted since the
+ * devices was rebooted. The time can only go, at best, up to 50 days before
+ * it rolls over to zero. I could probably add yet another counter and logic
+ * for this, and if I were deploying this where total uptime past 50 days
+ * were important I would. But for now it's just something to think about later.
+ */
+void displayUpTime() {
+    uint32_t milliseconds = millis();
+    uint32_t tseconds = milliseconds/1000;
+    uint32_t seconds = tseconds % 60;
+    uint32_t tminutes = tseconds/60;
+    uint32_t minutes = tminutes % 60;
+    uint32_t thours = tminutes/60;
+    uint32_t hours = thours%24;
+    uint32_t days = thours/24;
+    Serial.print(" Time up since startup: ");
+    Serial.print(days);
+    Serial.print(" - ");
+    Serial.print(hours/10);
+    Serial.print(hours%10);
+    Serial.print(':');
+    Serial.print(minutes/10);
+    Serial.print(minutes%10);
+    Serial.print(':');
+    Serial.print(seconds/10);
+    Serial.print(seconds%10);
+    Serial.println();
+}
+
 void setup() {
     Serial.begin(115200);
     alpha4.begin(0x70);
-    Scheduler.startLoop(loopBlinkBlue);
-    Scheduler.startLoop(loopEcho);
+    // 17 November 2019
+    // Now all the loops are commented out.
+    // When I moved the display blink code into its own
+    // function and started calling it in the main loop,
+    // the nRF53832 would lock up. Commenting these out
+    // stopped that. Early days and all, but still.
+    // The implementation of freeRTOS (if I believe he comments)
+    // appears fragile and unreliable.
     //
-    // Disable loopBlinkRed, as its control line
-    // is used for the I2C pins communicating with the
+    // Scheduler.startLoop(loopBlinkBlue);
+    // Scheduler.startLoop(loopEcho);
+    //
+    // Disable loopBlinkRed, as its control line appears to
+    // share functionality with the I2C pins communicating with the
     // alpha display plugged into the nRF52 feather.
     //
     // Scheduler.startLoop(loopBlinkRed);
@@ -63,16 +116,8 @@ void setup() {
 void loop() {
     while(true) {
         secondsDownCounter(30);
-        //
-        // Get all fancy and flash the displays alternately with
-        // all zeros then blanks ten times.
-        //
-        for (int j = 10; j > 0; j--) {
-            writeAllDigitAscii('0');
-            delay(100);
-            writeAllDigitAscii(' ');
-            delay(100);
-        }
+        flashDisplay(10);
+        displayUpTime();
     }
 }
 
