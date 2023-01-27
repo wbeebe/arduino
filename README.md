@@ -2,7 +2,7 @@
 
 ## Available Applications
 
-All applications are developed on a imid-2015 Macbook Pro under macOS (currently at 10.14.6) using the
+All applications are developed on a mid-2015 Macbook Pro under macOS (currently at 10.14.6) using the
 Arduino IDE (https://www.arduino.cc/en/Main/Software), currently version 1.8.10.
 
 + AdafruitFeather32u4RobotRover - The application for the 
